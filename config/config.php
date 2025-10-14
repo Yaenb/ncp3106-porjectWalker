@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'walksafe_db';
+$db   = 'projectwalker_db';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
