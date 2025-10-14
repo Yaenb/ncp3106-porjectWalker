@@ -1,12 +1,16 @@
-<?php include('includes/header.php'); ?>
-<div class="auth-container">
-  <h2>WalkSafe</h2>
-  <form id="loginForm" method="POST" action="api/login.php">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-  </form>
-  <p>Don’t have an account? <a href="#" id="showSignup">Sign up</a></p>
+<?php 
+include('includes/auth_check.php'); 
+include('includes/header.php'); 
+?>
+<div id="map"></div>
+
+<div id="bottom-bar">
+  <input type="text" id="searchLocation" placeholder="Search location...">
+  <button id="walkBtn">Walk</button>
 </div>
-<script src="assets/js/auth.js"></script>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="assets/js/map.js"></script>
+<script src="assets/js/rating.js"></script>
+<script src="assets/js/api.js"></script>
 <?php include('includes/footer.php'); ?>
