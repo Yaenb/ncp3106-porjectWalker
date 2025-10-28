@@ -1,2 +1,2 @@
-# ncp3106-porjectWalker
+# ncp3106-projectWalker
 path finder
