@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    
+html, body {
+    height: 100%;
+    min-height: 100vh; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f0f0;
+    /* Using a simple background for mobile to reduce load, or keep image if desired */
+    background-image: url('safety_first_2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* --- Welcome/Login/Signup Form Styles --- */
+
+/* Mobile: Forms take full width and are centered */
+.forms-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Added subtle overlay for text readability on mobile */
+    color: #fff;
+    padding: 2rem 1rem;
+    border-radius: 1.5rem;
+    box-shadow: none; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%; /* Take up most of the screen width */
+    max-width: 400px; /* Cap max width for large phones */
+    min-height: auto; 
+    margin: 0 auto; /* Center horizontally */
+    position: absolute; /* Changed to absolute for centering */
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 10;
+}
+
+.safe-streets-title {
+    font-size: 2rem; /* Slightly smaller for mobile */
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 1px #8a731d;
+    text-stroke: 1px #8a731d;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    background-color: #3b523e;
+    color: #fff;
+    padding: 0.75rem 2.5rem; /* Slightly smaller padding */
+    border-radius: 9999px;
+    font-weight: bold;
+    margin-top: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s;
+    border: 2px solid #5a7b63;
+    width: 80%; /* Ensure buttons are responsive */
+    max-width: 250px;
+}
+
+.input-field {
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    border: 2px solid #5a7b63;
+    background-color: rgba(46, 67, 49, 0.9); /* Slightly darker for better contrast */
+    color: #fff;
+    margin-bottom: 1rem;
+    width: 90%; /* Maximize input width on mobile */
+    max-width: 300px;
+    text-align: center;
+}
+
+/* --- Map Screen Styles --- */
+
+.map-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-image: url('assets/map_placeholder.png'); 
+    background-size: cover;
+    background-position: center;
+}
+
+/* Mobile Map Search Bar at the bottom for easy reach */
+.search-bar {
+    background-color: #fff;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    position: absolute;
+    bottom: 15px; /* Closer to the bottom edge */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+.map-controls-top {
+    position: absolute;
+    top: 10px; 
+    right: 10px;
+    left: 10px; /* Stretch across the top */
+    display: flex;
+    justify-content: space-between; /* Space out controls */
+    z-index: 20;
+}
+
+.map-controls-top .btn-small {
+     background-color: white; 
+     color: #3b523e; 
+     padding: 0.5rem 1rem; 
+     font-size: 0.875rem;
+     border-radius: 9999px; 
+     font-weight: bold;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.carousel-container {
+    display: none !important; 
+}
+
+@media (min-width: 768px) {
+    .forms-container {
+        background-color: transparent; 
+        width: auto; 
+        max-width: none; 
+        position: fixed; 
+        top: 50%;
+        right: 15%; /* Positioned right of the carousel */
+        transform: translateY(-50%); 
+        margin: 0;
+    }
+
+    .forms-container #form-content {
+        width: 90%;
+        max-width: 400px;
+    }
+    
+    .carousel-container {
+        display: block !important; /* Re-enable for larger screens */
+        width: 400px; 
+        min-height: 400px; 
+        position: fixed; 
+        top: 50%;
+        left: 25%; 
+        transform: translate(-50%, -50%); 
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
+        border-radius: 1rem; 
+        z-index: 10; 
+        overflow: hidden; 
+        background-color: #fff; /
+    }
+    
+    .map-controls-top {
+        top: 4px;
+        right: 4px;
+        left: auto;
+        justify-content: flex-end; /* Align right */
+        space-x-2: 0.5rem;
+    }
+}
