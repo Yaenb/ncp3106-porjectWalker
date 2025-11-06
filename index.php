@@ -1,6 +1,6 @@
 <?php 
-include('includes/auth_check.php'); 
-include('includes/header.php'); 
+include('include/auth_check.php'); 
+include('include/header.php'); 
 ?>
 <div id="map"></div>
 
