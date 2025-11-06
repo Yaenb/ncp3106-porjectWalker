@@ -1,6 +1,6 @@
 <?php 
-include('includes/auth_check.php'); 
-include('includes/header.php'); 
+include('include/auth_check.php'); 
+include('include/header.php'); 
 ?>
 <div id="map"></div>
 
@@ -13,4 +13,4 @@ include('includes/header.php');
 <script src="assets/js/map.js"></script>
 <script src="assets/js/rating.js"></script>
 <script src="assets/js/api.js"></script>
-<?php include('includes/footer.php'); ?>
+<?php include('include/footer.php'); ?>
