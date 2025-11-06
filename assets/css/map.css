@@ -1,0 +1,205 @@
+/* --- LEAFLET OVERRIDES (Important for overall popup appearance) --- */
+/* Remove default Leaflet popup styling to allow full custom design */
+.custom-leaflet-popup .leaflet-popup-content-wrapper {
+    background: none; /* Make background transparent */
+    box-shadow: none; /* Remove default shadow */
+    border-radius: 0; /* Remove default border-radius */
+    padding: 0; /* Remove default padding */
+}
+
+.custom-leaflet-popup .leaflet-popup-content {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.custom-leaflet-popup .leaflet-popup-tip-container {
+    display: none; /* Hide the default tip/arrow */
+}
+
+/* Ensure the popup container itself has no extra padding */
+.custom-leaflet-popup .leaflet-popup-pane {
+    padding: 0;
+}
+
+
+/* --- CUSTOM DESIGN POPUP STYLES --- */
+.custom-design-popup {
+    background-color: #3C5C36; /* Dark green background */
+    border-radius: 15px; /* Rounded corners for the whole pop-up */
+    color: #E0E0E0; /* Light text color */
+    padding: 15px;
+    width: 280px; /* Fixed width as per design */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+}
+
+.popup-section {
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #E0E0E0; /* White/light gray */
+    display: block; /* Make it take full width */
+    margin-bottom: 8px;
+}
+
+/* --- Image Gallery Styles --- */
+.image-gallery {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for images */
+    gap: 10px; /* Space between images */
+    margin-bottom: 15px;
+    border-radius: 8px; /* Slightly rounded gallery container */
+    overflow: hidden; /* Hide overflow from rounded corners */
+}
+
+.gallery-inner {
+    grid-column: 1 / -1; /* Make inner container span all columns */
+    position: relative;
+    width: 100%;
+    height: 120px; /* Fixed height for image area */
+    display: flex; /* Use flexbox to position images */
+    align-items: center;
+    justify-content: center;
+    background-color: #557A51; /* Lighter green for image placeholders */
+    border-radius: 8px;
+    overflow: hidden; /* Crucial for image switching */
+}
+
+.gallery-image {
+    position: absolute; /* Position images absolutely within the inner container */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area, crop if necessary */
+    border-radius: 8px;
+    display: none; /* Hide all by default */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-image.active {
+    display: block; /* Show active image */
+    opacity: 1;
+}
+
+/* Default placeholder image if no actual image is loaded */
+.gallery-image:not([src])::before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23A9C7A6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px; /* Size of the SVG icon */
+    height: 50px;
+    display: block;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5em;
+    line-height: 1;
+    z-index: 10; /* Ensure nav buttons are above images */
+}
+
+.gallery-nav.left {
+    left: 5px;
+}
+
+.gallery-nav.right {
+    right: 5px;
+}
+
+
+/* --- Star Rating Styles --- */
+.rating-section {
+    display: flex; /* Align stars horizontally */
+    gap: 5px; /* Space between stars */
+    margin-bottom: 15px;
+}
+
+.star {
+    font-size: 1.8em; /* Large star size */
+    color: #777; /* Default star color (greyed out) */
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star.filled {
+    color: #F8D34A; /* Gold color for filled stars */
+}
+/* You can add :hover effects if you want interactive rating in the popup */
+
+
+/* --- Tags Styles --- */
+.tags-title {
+    margin-top: 5px;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Space between tags */
+    margin-top: 5px;
+}
+
+.tag-item {
+    background-color: #557A51; /* Lighter green for tag background */
+    color: #E0E0E0; /* Light text for tags */
+    padding: 5px 12px;
+    border-radius: 20px; /* Pill shape for tags */
+    font-size: 0.85em;
+    white-space: nowrap; /* Prevent tags from breaking */
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+/* --- Input/Textarea Styles --- */
+.input-label {
+    font-size: 0.9em;
+    color: #E0E0E0;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.popup-textarea {
+    width: calc(100% - 20px); /* Full width minus padding */
+    background-color: #557A51; /* Lighter green for input fields */
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    color: #E0E0E0;
+    font-size: 0.95em;
+    resize: vertical; /* Allow vertical resizing for textareas */
+    outline: none; /* Remove blue outline on focus */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.popup-textarea::placeholder {
+    color: #A9C7A6; /* Lighter placeholder text */
+}
+
+/* Optional: Style for a save button if you add one */
+.save-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}
