@@ -13,4 +13,4 @@ include('include/header.php');
 <script src="assets/js/map.js"></script>
 <script src="assets/js/rating.js"></script>
 <script src="assets/js/api.js"></script>
-<?php include('includes/footer.php'); ?>
+<?php include('include/footer.php'); ?>
